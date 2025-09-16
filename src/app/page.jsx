@@ -62,7 +62,7 @@ export default function Home() {
             </Button>
           </Link>
 
-          <Link href="/infomation" className={styles.link}>
+          <Link href="/easteregg" className={styles.link}>
             <Button size="large" className={styles.botaoOutline}>
               Curiosidades
             </Button>
