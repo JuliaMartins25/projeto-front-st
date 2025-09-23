@@ -63,7 +63,7 @@ export default function Home() {
           </Link>
 
           <Link href="/easteregg" className={styles.link}>
-            <Button size="large" className={styles.botaoOutline}>
+            <Button size="large" className={styles.botaoDois}>
               Curiosidades
             </Button>
           </Link>
@@ -74,7 +74,7 @@ export default function Home() {
         <div className={styles.eggOverlay}>
           <div className={styles.eggCard}>
             <h2>Upside Down</h2>
-            <p>Você encontrou o easter egg — cuidado com as portas...</p>
+            <p>Você encontrou o easter egg...</p>
             <div className={styles.eggGlitch} />
           </div>
         </div>

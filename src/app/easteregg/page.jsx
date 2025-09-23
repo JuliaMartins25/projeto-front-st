@@ -2,6 +2,8 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Button } from "antd";
 
 import styles from "./egg.module.css";
 
@@ -45,15 +47,16 @@ const FilmList = () => {
     }
     return (
         <div className={styles.container}>
-            <div className={styles.topo}>
-                <div className={styles.title}><h1 className={styles.title}>Coisas que talvez você não sabia de Stranger Things</h1></div>
-                <div className={styles.buttonback}> <Link href="/" className={styles.link}>
+            <div className={styles.header}>
+                <h1 className={styles.title}>Curiosidades</h1>
+                <Link href="/" className={styles.link}>
                     <Button type="primary" size="large" className={styles.botao}>
-                        Voltar
+                        Voltar para Home
                     </Button>
-                </Link></div>
-                <div className={styles.filmGrid}>
-                </div>
+                </Link>
+            </div>
+
+            <div className={styles.filmGrid}>
                 {films.map((film) => (
                     <div key={film.id} className={styles.filmCard}>
                         <div className={styles.imageContainer}>
@@ -64,7 +67,9 @@ const FilmList = () => {
                             <p className={styles.director}> {film.facts}</p>
                             <p className={styles.year}>{film.theories}</p>
                             <div className={styles.rating}>
-                                <span className={styles.score}>{film.rt_score}%</span>
+                                <Link href="/" className={styles.link}>
+                                    <span className={styles.score}>{film.rt_score}%</span>
+                                </Link>
                             </div>
                         </div>
                     </div>

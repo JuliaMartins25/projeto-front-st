@@ -4,11 +4,41 @@
     background: radial-gradient( circle at 10% 10%, #0f172a 0%, #5a1a1a 40%, #070712 100% );;
 }
 
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 18px 0;
+    flex-wrap: nowrap;
+}
+
 .title {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #3a3a3a;
-    font-size: 32px;
+    margin: 0;
+    font-size: 48px;
+    font-weight: 800;
+    color: #ff3b6b;
+    line-height: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.link {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+.botao {
+    height: 44px;
+    padding: 0 18px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #ff4b79 0%, #ff7a59 100%);
 }
 
 .filmGrid {

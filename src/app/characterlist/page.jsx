@@ -2,10 +2,11 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import Link from "next/link";
+import { Button } from "antd";
 import styles from "./personagem.module.css";
 
-const FilmList =() => {
+const FilmList = () => {
     const url = "http://localhost:5000/characters/";
 
     const [films, setFilms] = useState([]);
@@ -45,7 +46,15 @@ const FilmList =() => {
     }
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>Personagens de Stranger Things</h1>
+
+            <div className={styles.header}>
+                <h1 className={styles.title}>Personagens de Stranger Things</h1>
+                <Link href="/" className={styles.link}>
+                    <Button type="primary" size="large" className={styles.botao}>
+                        Voltar para Home
+                    </Button>
+                </Link>
+            </div>
             <div className={styles.filmGrid}>
                 {films.map((film) => (
                     <div key={film.id} className={styles.filmCard}>
@@ -54,10 +63,10 @@ const FilmList =() => {
                         </div>
                         <div className={styles.content}>
                             <h2 className={styles.filmTitle}>{film.name}</h2>
-                            <p className={styles.director}> {film.age}</p>
-                            <p className={styles.year}>{film.release_date}</p>
                             <div className={styles.rating}>
-                                <span className={styles.score}>{film.rt_score}%</span>
+                                <Link href="/" className={styles.link}>
+                                    <span className={styles.score}>{film.rt_score}%</span>
+                                </Link>
                             </div>
                         </div>
                     </div>
