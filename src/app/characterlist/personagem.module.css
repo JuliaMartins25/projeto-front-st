@@ -90,6 +90,13 @@
     color: #333;
 }
 
+.filmSubTitle {
+    margin: 0 0 10px;
+    font-size: 10px;
+    font-weight: 300;
+    color: #333;
+}
+
 .director {
     font-size: 14px;
     color: #555;
@@ -108,7 +115,7 @@
 
 .score {
     display: inline-block;
-    background-color: #4caf50;
+    background: linear-gradient(90deg, #ff4b79 0%, #ff7a59 100%);
     color: white;
     padding: 3px 8px;
     border-radius: 12px;

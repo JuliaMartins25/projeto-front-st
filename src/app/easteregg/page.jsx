@@ -63,12 +63,10 @@ const FilmList = () => {
                             <img src={film.image} alt={film.title} className={styles.image} />
                         </div>
                         <div className={styles.content}>
-                            <h2 className={styles.filmTitle}>{film.secrets}</h2>
-                            <p className={styles.director}> {film.facts}</p>
-                            <p className={styles.year}>{film.theories}</p>
+                            <h2 className={styles.filmTitle}>{film.title}</h2>
                             <div className={styles.rating}>
                                 <Link href="/" className={styles.link}>
-                                    <span className={styles.score}>{film.rt_score}%</span>
+                                    <span className={styles.score}>{film.rt_score}Saiba Mais</span>
                                 </Link>
                             </div>
                         </div>

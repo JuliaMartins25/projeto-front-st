@@ -63,9 +63,10 @@ const FilmList = () => {
                         </div>
                         <div className={styles.content}>
                             <h2 className={styles.filmTitle}>{film.name}</h2>
+                            <h2 className={styles.filmSubTitle}>Primeira aparição: {film.firstEp}</h2>
                             <div className={styles.rating}>
                                 <Link href="/" className={styles.link}>
-                                    <span className={styles.score}>{film.rt_score}%</span>
+                                    <span className={styles.score}>{film.rt_score}Saiba Mais</span>
                                 </Link>
                             </div>
                         </div>
