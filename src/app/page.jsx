@@ -67,6 +67,12 @@ export default function Home() {
               Curiosidades
             </Button>
           </Link>
+
+          <Link href="/sobremim" className={styles.link}>
+            <Button size="large" className={styles.botaoDois}>
+              Sobre Mim
+            </Button>
+          </Link>
         </div>
       </div>
 

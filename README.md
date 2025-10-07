@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 👾 Stranger Things — Frontend
 
-## Getting Started
+Descrição do projeto
+-------------------
+Frontend em Next.js (App Router) inspirado em Stranger Things. A aplicação consome uma API (Stranger Things API) para listar personagens e easter eggs, exibir detalhes e navegar entre páginas como Home e Sobre.
 
-First, run the development server:
+Funcionalidades
+---------------
+- Listagem de personagens (GET).
+- Página de detalhe de personagem por id (GET).
+- Listagem de easter eggs/curiosidades (GET).
+- Página de detalhe do easter egg por id (GET).
+- Página "Sobre mim" com perfil e descrição.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Tecnologias utilizadas
+---------------------
+- Next.js (App Router)
+- React
+- Ant Design (UI)
+- next/image (imagens)
+- CSS Modules e Tailwind/PostCSS (estilos)
+- Axios ou fetch (requisições HTTP)
+
+Instalação e execução
+---------------------
+1. Instalar dependências:
+```sh
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Variáveis de ambiente (crie um arquivo .env.local na raiz):
+```
+NEXT_PUBLIC_API_URL=http://localhost:5000
+```
+(Substitua pela URL da sua API; pode ser uma instância local ou um servidor remoto.)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. Executar em desenvolvimento:
+```sh
+npm run dev
+```
+Acesse http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Build para produção:
+```sh
+npm run build
+npm run start
+```
 
-## Learn More
+Estrutura do projeto (resumida)
+-------------------------------
+src/
+├─ app/
+│  ├─ page.jsx                — Home
+│  ├─ layout.js               — Layout global
+│  ├─ globals.css             — Estilos globais
+│  ├─ sobremim/
+│  │  └─ page.jsx             — Página Sobre
+│  ├─ characterlist/
+│  │  ├─ page.jsx             — Lista de personagens
+│  │  └─ [id]/page.jsx        — Detalhes do personagem
+│  └─ easteregg/
+│     ├─ page.jsx             — Lista de easter eggs
+│     └─ [id]/page.jsx        — Detalhes do easter egg
+public/
+├─ image/                     — Imagens estáticas (ex.: sobre.jpg)
+next.config.mjs
+package.json
 
-To learn more about Next.js, take a look at the following resources:
+Exemplos de uso da API
+----------------------
+Assumindo NEXT_PUBLIC_API_URL=http://localhost:5000
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Listar personagens
+```sh
+curl http://localhost:5000/characters
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Obter personagem por id (ex: id = 1)
+```sh
+curl http://localhost:5000/characters/1
+```
 
-## Deploy on Vercel
+- Listar easter eggs
+```sh
+curl http://localhost:5000/easteregg
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Obter easter egg por id (ex: id = 2)
+```sh
+curl http://localhost:5000/easteregg/2
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Exemplo de fetch no Next.js (client-side)
+```js
+const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+const res = await fetch(`${API}/characters`);
+const characters = await res.json();
+```
+
+Observações:
+-----------
+- Neste repositório o frontend consome apenas as rotas de leitura (GET) da API.
+- Para testar CRUD completo, execute a API (Node.js + Express + Prisma) separadamente conforme repositório da API.
+
+Acessar as páginas dos personagens principais
+---------------------------------------------
+- Onze (Jane Ives / Jane Hopper)
+- Mike Wheeler
+- Will Byers
+- Dustin Henderson
+- Lucas Sinclair
+- Max Mayfield
+- Steve Harrington
+- Nancy Wheeler
+- Jonathan Byers
+- Billy Hargrove
+- Joyce Byers
+- Jim Hopper
+- Murray Bauman
+- Robin Buckley
+- Erica Sinclair
+- Alexei
+- Bob Newby
+- Dr. Martin Brenner
+- Dr. Owens
+- Demogorgon
+- 010
+- Dimitri Antolov
+- 002
+- 001 / Henry Creel / Vecna
+- Eddie Munson
+- Keith
+- Devorador de mentes
+- Yuri Ismalov
+
+ esses personagens estão com informações completas na API; acesse as páginas de detalhe correspondentes pelas rotas /characters/:id 
