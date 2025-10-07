@@ -8,7 +8,8 @@ import { Button } from "antd";
 import styles from "./egg.module.css";
 
 const FilmList = () => {
-    const url = "http://localhost:5000/easteregg/";
+
+    const apiURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
     const [films, setFilms] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -18,7 +19,7 @@ const FilmList = () => {
         const fetchFilms = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get(url);
+                const response = await axios.get(apiURL + "/easteregg");
                 setFilms(response.data);
                 setLoading(false);
             } catch (error) {
@@ -65,7 +66,7 @@ const FilmList = () => {
                         <div className={styles.content}>
                             <h2 className={styles.filmTitle}>{film.title}</h2>
                             <div className={styles.rating}>
-                                <Link href="/" className={styles.link}>
+                                <Link href={`/easteregg/${film.id}`} className={styles.link}>
                                     <span className={styles.score}>{film.rt_score}Saiba Mais</span>
                                 </Link>
                             </div>

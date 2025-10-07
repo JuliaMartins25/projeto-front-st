@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import styles from "./character.module.css";
+import styles from "./id.module.css";
 import Link from "next/link";
 import { Button } from "antd";
 
@@ -27,7 +27,7 @@ export default function CharacterPage({ params }) {
 
         const fetchCharacter = async () => {
             try {
-                const res = await fetch(`${apiURL}/characters/${id}`);
+                const res = await fetch(`${apiURL}/easteregg/${id}`);
 
                 const data = await res.json();
                 console.log(data);
@@ -49,15 +49,18 @@ export default function CharacterPage({ params }) {
                         <img src={character.image} alt={character.name} className={styles.image} />
                     </div>
                     <div className={styles.content}>
-                        <h1 className={styles.filmTitle}>{character.name}</h1>
-                        <p className={styles.conteudo}>{character.description}</p>
+                        <h1 className={styles.filmTitle}>{character.filmTitle}</h1>
+                        <p className={styles.conteudo}>{character.facts}</p>
+                        <p className={styles.conteudo}>{character.secrets}</p>
+                        <p className={styles.conteudo}>{character.theories}</p>
                     </div>
                 </div>
+
             ) : (
                 <p className={styles.loading}>Loading character data...</p>
             )}
             <div className={styles.header}>
-                <Link href="/characterlist" className={styles.link}>
+                <Link href="/easteregg" className={styles.link}>
                     <Button type="primary" size="large" className={styles.botao}>
                         Voltar
                     </Button>
